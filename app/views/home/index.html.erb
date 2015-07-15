@@ -1,0 +1,19 @@
+<%= form_tag root_path, :method => 'get', :id => "actions_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="results"><%= render 'actions' %> <%= render 'items' %></div>
+<% end %>
+
+<% @actions.each do |action| %>
+
+<%= action.name %>
+
+<% end %>
+
+<% @items.each do |item| %>
+
+<%= item.name %>
+
+<% end %>

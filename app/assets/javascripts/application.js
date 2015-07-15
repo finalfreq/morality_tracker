@@ -17,3 +17,26 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+  $("#actions th a, #actions .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#actions_search input").keyup(function() {
+    $.get($("#actions_search").attr("action"), $("#actions_search").serialize(), null, "script");
+    return false;
+  });
+});
+
+$(function() {
+  $("#items th a, #items .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#items_search input").keyup(function() {
+    $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
+    return false;
+  });
+});
