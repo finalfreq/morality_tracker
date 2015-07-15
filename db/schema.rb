@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715164907) do
+ActiveRecord::Schema.define(version: 20150715165226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,20 +26,6 @@ ActiveRecord::Schema.define(version: 20150715164907) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.integer  "morality"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_actions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "action_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_items", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,5 +49,21 @@ ActiveRecord::Schema.define(version: 20150715164907) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_actions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "action_id"
+  end
+
+  add_index "users_actions", ["action_id"], name: "index_users_actions_on_action_id", using: :btree
+  add_index "users_actions", ["user_id"], name: "index_users_actions_on_user_id", using: :btree
+
+  create_table "users_items", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+  end
+
+  add_index "users_items", ["item_id"], name: "index_users_items_on_item_id", using: :btree
+  add_index "users_items", ["user_id"], name: "index_users_items_on_user_id", using: :btree
 
 end
