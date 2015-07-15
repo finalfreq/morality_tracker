@@ -1,19 +1,20 @@
 class HomeController<ApplicationController
-  helper_method :sort_action_column, :sort_direction
+  helper_method :sort_activity_column, :sort_item_column, :sort_direction
 
 
   def index
-    actions = Action.search(params[:search]).order(sort_action_column + " " + sort_direction)
+    activities = Activity.search(params[:search]).order(sort_activity_column + " " + sort_direction)
     items = Item.search(params[:search]).order(sort_item_column + " " + sort_direction)
-    action_items = actions + items
+    activity_items = activities + items
 
-    @results = action_items.paginate(per_page: 5, page: params[:page])
+    @results = activity_items.paginate(per_page: 5, page: params[:page])
   end
 
   private
 
-  def sort_action_column
-    Action.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  def sort_activity_column
+
+    Activity.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
 
   def sort_item_column

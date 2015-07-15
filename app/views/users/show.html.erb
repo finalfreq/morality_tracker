@@ -3,33 +3,94 @@
 
 
 
-<% if current_user.actions.any? %>
+<% if current_user.activities.any? %>
   <div class="col-md-6">
     <table class="table table-bordered table-striped">
       <tr>
         <th>
-        <%= action_sortable 'Actions' %>
+        <%= activity_sortable 'name' %>
         </th>
         <th>
-          Morality
+        <%= activity_sortable 'morality' %>
         </th>
       </tr>
-      <% current_user.actions.each do |action| %>
+      <% @activities.each do |activity| %>
         <tr>
           <td>
-          <%= action.name %>
+          <%= activity.name %>
           </td>
           <td>
-          <%= action.morality %>
+          <%= activity.morality %>
           </td>
         </tr>
       <% end %>
+      <tr>
+        <td>
+          <%= link_to 'Add Activity', new_user_activity_path(current_user)  %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Total
+        </td>
+        <td>
+          <%= current_user.total_activity_morality %>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% else %>
+  <%= link_to new_user_activity_path(current_user) do %>
+  <h3>No actions currently listed, add an action here</h3>
+  <% end %>
+<% end %>
+<% if current_user.items.any? %>
+  <div class="col-md-6">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>
+        <%= item_sortable 'name' %>
+        </th>
+        <th>
+        <%= item_sortable 'morality' %>
+        </th>
+      </tr>
+      <% @items.each do |item| %>
+        <tr>
+          <td>
+          <%= item.name %>
+          </td>
+          <td>
+          <%= item.morality %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td>
+          <%= link_to 'Add Item', new_user_item_path(current_user)  %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Total
+        </td>
+        <td>
+          <%= current_user.total_item_morality %>
+        </td>
+      </tr>
     </table>
   </div>
 <% end %>
 
-<% if current_user.items.any? %>
-  <div class="col-md-6">
-
+<div class="col-md-12">
+  <div class="well">
+    <tr>
+    <td>
+      Your Immorality Score:
+    </td>
+    <td>
+      <%= current_user.total_morality %>
+    </td>
+  </tr>
   </div>
-<% end %>
+</div>

@@ -1,13 +1,19 @@
-<%= form_tag root_path, :method => 'get', :id => "actions_search" do %>
+<h1></h1>
+
+<%= form_tag root_path, :method => 'get', :id => "activities_search" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
-  <div id="results"><%= render 'results' %></div>
 <% end %>
-
-<% @results.each do |result| %>
-
-<%= result.name %>
-
-<% end %>
+  <br>
+<ul>
+  <% @results.each do |result| %>
+    <% if result.kind_of?(Activity) %>
+      <li><%= link_to result.name,user_activities_path(current_user.id, activity: { name: result.name, morality: result.morality}), method: :post %></li>
+    <% else %>
+      <li><%= link_to result.name,user_items_path(current_user.id, item: { name: result.name, morality: result.morality}), method: :post %></li>
+    <% end %>
+  <% end %>
+</ul>
+  <div id="results"><%= render 'layouts/results' %></div>

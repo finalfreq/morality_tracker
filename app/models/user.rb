@@ -6,5 +6,23 @@ class User < ActiveRecord::Base
 
 
   has_and_belongs_to_many :items
-  has_and_belongs_to_many :actions
+  has_and_belongs_to_many :activities
+
+  def total_activity_morality
+    total = 0
+    activities.each { |activity| total += activity.morality }
+    total
+  end
+
+  def total_item_morality
+    total = 0
+    items.each { |item| total += item.morality }
+    total
+  end
+
+  def total_morality
+    total_activity_morality + total_item_morality + morality
+
+  end
+
 end
