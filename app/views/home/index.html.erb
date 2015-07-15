@@ -3,17 +3,11 @@
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
-  <div id="results"><%= render 'actions' %> <%= render 'items' %></div>
+  <div id="results"><%= render 'results' %></div>
 <% end %>
 
-<% @actions.each do |action| %>
+<% @results.each do |result| %>
 
-<%= action.name %>
-
-<% end %>
-
-<% @items.each do |item| %>
-
-<%= item.name %>
+<%= result.name %>
 
 <% end %>

@@ -1,0 +1,35 @@
+<h1 class="page-header text-center">Welcome <%= current_user.name %></h1>
+
+
+
+
+<% if current_user.actions.any? %>
+  <div class="col-md-6">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>
+        <%= action_sortable 'Actions' %>
+        </th>
+        <th>
+          Morality
+        </th>
+      </tr>
+      <% current_user.actions.each do |action| %>
+        <tr>
+          <td>
+          <%= action.name %>
+          </td>
+          <td>
+          <%= action.morality %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+
+<% if current_user.items.any? %>
+  <div class="col-md-6">
+
+  </div>
+<% end %>
