@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  
   helper_method :sort_activity_column, :sort_activities_direction, :sort_items_direction, :sort_item_column
 
 
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @activities = current_user.activities.order(sort_activity_column + " " + sort_activities_direction)
-
+    @item = Item.new
     @items = current_user.items.order(sort_item_column + " " + sort_items_direction)
     @activity = Activity.new
     activities = Activity.search(params[:search])

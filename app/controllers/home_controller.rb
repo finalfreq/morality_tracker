@@ -1,4 +1,5 @@
 class HomeController<ApplicationController
+  
   before_action :authenticate_user!
 
   helper_method :sort_activity_column, :sort_item_column, :sort_direction

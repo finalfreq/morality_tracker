@@ -21,6 +21,8 @@ gem 'momentjs-rails'
 gem 'groupdate', '~> 2.1.1'
 gem 'active_median', '~> 0.1.0'
 gem 'chartkick', '~> 1.2.4'
+gem 'faker'
+gem 'seed_dump'
 
 
 group :development do

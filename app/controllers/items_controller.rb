@@ -2,8 +2,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    items = Item.search(params[:search])
-    @results = items.paginate(per_page: 8, page: params[:page])
+    @items = Item.search(params[:search])
+    @results = @items.paginate(per_page: 8, page: params[:page])
+    @user = current_user
   end
 
   def create

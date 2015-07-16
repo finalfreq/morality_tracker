@@ -1,5 +1,6 @@
 <div style="overflow:scroll; height:225px;">
 <% @activities.each do |result| %>
-    <p id="pad"><%= link_to result.name,user_activities_path(current_user.id, activity: { name: result.name, morality: result.morality}), class: 'button-hidden', method: :post%></p>
+
+    <p id="pad"><%= link_to result.name, user_activities_path(current_user, activity: {name: result.name, morality: result.morality}), class: 'button-hidden', method: :post%></p>
 <% end %>
 </div>

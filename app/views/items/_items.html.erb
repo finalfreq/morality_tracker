@@ -1,0 +1,5 @@
+<div style="overflow:scroll; height:225px;">
+<% @items.each do |result| %>
+    <p id="pad"><%= link_to result.name,user_items_path(current_user.id, item: { name: result.name, morality: result.morality}), class: 'button-hidden', method: :post%></p>
+<% end %>
+</div>

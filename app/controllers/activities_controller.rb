@@ -9,6 +9,7 @@ class ActivitiesController<ApplicationController
 
   def create
     @activity = Activity.find_or_create_by(activity_params)
+    @user = current_user
     current_user.activities.push(@activity)
     if @activity.save
       redirect_to current_user, notice: 'Successfully added'
