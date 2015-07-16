@@ -3,8 +3,8 @@ class ActivitiesController<ApplicationController
 
   def new
     @activity = Activity.new
-    activities = Activity.search(params[:search])
-    @results = activities.paginate(per_page: 8, page: params[:page])
+    @activities = Activity.search(params[:search])
+    @results = @activities.paginate(per_page: 8, page: params[:page])
   end
 
   def create

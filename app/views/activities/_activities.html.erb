@@ -1,0 +1,3 @@
+<% @activities.each do |result| %>
+  <li><%= link_to result.name,user_activities_path(current_user.id, activity: { name: result.name, morality: result.morality}), method: :post%></li>
+<% end %>

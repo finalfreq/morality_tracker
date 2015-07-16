@@ -1,5 +1,10 @@
-<h3 class="text-success">Use Previous Activity</h3>
-<%= simple_form_for [current_user, @activity] do |f| %>
-  <%= f.input :id, label: "Activities", collection: Activity.all %>
-  <%= f.button :submit, "Save Activity" %>
+<%= form_tag new_user_activity_path(current_user), :method => 'get', :id => "activities_search", remote: true do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>
+
+<div class="activities_search">
+
+</div>

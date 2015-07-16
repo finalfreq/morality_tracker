@@ -20,12 +20,12 @@
 
 
 $(function() {
-  $("#actions th a, #actions .pagination a").live("click", function() {
+  $("#activities th a, #actions .pagination a").live("click", function() {
     $.getScript(this.href);
     return false;
   });
-  $("#actions_search input").keyup(function() {
-    $.get($("#actions_search").attr("action"), $("#actions_search").serialize(), null, "script");
+  $("#activities_search input").keyup(function() {
+    $.get($("#activities_search").attr("action"), $("#activities_search").serialize(), null, "script");
     return false;
   });
 });
