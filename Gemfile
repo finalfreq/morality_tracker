@@ -18,6 +18,10 @@ gem 'jquery-turbolinks'
 gem 'simple_form'
 gem 'will_paginate'
 gem 'momentjs-rails'
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
+gem 'chartkick', '~> 1.2.4'
+
 
 group :development do
   gem 'byebug'

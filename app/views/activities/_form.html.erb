@@ -1,7 +1,7 @@
 <%= render 'layouts/errors', object: @activity %>
 
 <%= simple_form_for [current_user, @activity] do |f| %>
-  <%=  f.input :name %>
+  <%= f.input :name %>
   <%= f.input :morality %>
   <%= f.button :submit %>
 <% end %>

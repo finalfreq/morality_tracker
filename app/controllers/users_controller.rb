@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     @activities = current_user.activities.order(sort_activity_column + " " + sort_activities_direction)
 
     @items = current_user.items.order(sort_item_column + " " + sort_items_direction)
-
+    @activity = Activity.new
+    activities = Activity.search(params[:search])
+    @results = activities.paginate(per_page: 6, page: params[:page])
   end
 
   private

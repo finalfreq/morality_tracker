@@ -1,0 +1,5 @@
+<h3 class="text-success">Use Previous Activity</h3>
+<%= simple_form_for [current_user, @activity] do |f| %>
+  <%= f.input :id, label: "Activities", collection: Activity.all %>
+  <%= f.button :submit, "Save Activity" %>
+<% end %>
