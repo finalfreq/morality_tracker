@@ -20,10 +20,6 @@
 
 
 $(function() {
-  $("#activities th a, #actions .pagination a").live("click", function() {
-    $.getScript(this.href);
-    return false;
-  });
   $("#activities_search input").keyup(function() {
     $.get($("#activities_search").attr("action"), $("#activities_search").serialize(), null, "script");
     return false;
@@ -31,10 +27,6 @@ $(function() {
 });
 
 $(function() {
-  $("#items th a, #items .pagination a").live("click", function() {
-    $.getScript(this.href);
-    return false;
-  });
   $("#items_search input").keyup(function() {
     $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
     return false;
