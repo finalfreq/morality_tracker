@@ -4,4 +4,4 @@ Morality Tracker was a project for Epicodus that involved setting up a table sho
 
 * Configuration
 
-<p> To use the application run bundle install, rake db:create, rake db:migrate and then rails server. Navigate to the home page at localhost:3000 </p>
+To use the application run bundle install, rake db:create, rake db:migrate and then rails server. Navigate to the home page at localhost:3000 
