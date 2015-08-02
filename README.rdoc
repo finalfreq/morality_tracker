@@ -1,7 +1,0 @@
-== Morality Tracker
-
-Morality Tracker was a project for Epicodus that involved setting up a table showing daily activity of a user. The application also involved using AJAX to create responsive designs with updating tables and searching though the tables.
-
-* Configuration
-
-To use the application run bundle install, rake db:create, rake db:migrate and then rails server. Navigate to the home page at localhost:3000 
